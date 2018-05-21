@@ -140,7 +140,7 @@
       } else {
           $response = json_decode($response, true);
           if (empty($response)) {
-            $response[] = "комментариев пока нету";
+            $response[0][text] = "комментариев пока нету";
             return $response;
           } else {
             return $response; 

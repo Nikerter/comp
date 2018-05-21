@@ -91,7 +91,7 @@
                     // print_r(get_solution_comment($_GET['solutionID']));
                         foreach (get_solution_comment($_GET['solutionID']) as $key => $value) {
                             echo "<li class='list-group-item'>";
-                                print_r($value);
+                                print_r($value[text]);
                             echo "</li>";
                         }; 
                 ?>
