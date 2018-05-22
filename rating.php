@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../comp/css/style.css">
     <title>Старт</title>
   </head>
   <body>
@@ -18,10 +18,13 @@
         include('libs/bibl.php');
         include('libs/const.php');
     ?>
+    <?php require($_SERVER[DOCUMENT_ROOT].'/comp/libs/menu.php');?>
+    <div class="container-fluid">
     <div class="row text-center">
         <div class="col-md-12">
             <h1>Топ 100 пользователей</h1>
-            <table class="table table-hover">
+            <div class="table-responsive">
+            <table class="table  table-hover">
                 <thead>
                     <tr>
                         <th>
@@ -81,7 +84,11 @@
                             //
                         };?>                   
                 </tbody>
+                </table>
+            </div>
         </div>
     </div>
+    </div>
   </body>
+  <?php require($_SERVER[DOCUMENT_ROOT].'/comp/libs/footer.php');?>
 </html>

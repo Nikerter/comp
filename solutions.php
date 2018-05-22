@@ -16,8 +16,11 @@
         include('libs/const.php');
     ?>
     <script>function showmodal(){$(document).ready(function() {$('#exampleModal').modal('show');});}</script>
+    <?php require($_SERVER[DOCUMENT_ROOT].'/comp/libs/menu.php');?>
+    <div class="container-fluid">
     <div class="row">
         <div class="col-md-12 text-center">
+            <div class="table-responsive">
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -76,6 +79,7 @@
                         };?>                   
                 </tbody>
             </table>
+         </div>
         </div>
     </div>
     <!-- Modal -->
@@ -115,6 +119,8 @@
         </div>
       </div>
     </div>
-    <script>$('#exampleModal').on('hidden.bs.modal', function (event) {location.search = '/';});</script>    
+    </div>
+    <script>$('#exampleModal').on('hidden.bs.modal', function (event) {location.search = '/';});</script>
   </body>
+  <?php require($_SERVER[DOCUMENT_ROOT].'/comp/libs/footer.php');?>
 </html>
