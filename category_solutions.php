@@ -28,51 +28,35 @@
                             <h2>№</h2>
                         </th>
                         <th>
-                            <h2>Пользователь</h2>
+                            <h2>Категория</h2>
                         </th>
                         <th>
-                            <h2>Рейтинг</h2>
+                            <h2>Описание</h2>
                         </th>
                         <th>
-                            <h2>Страна</h2>
+                            <h2>Перейти</h2>
                         </th>
                     </tr>
                 </thead>
                 <tbody>                        
                     <?php
-                        foreach (get_users_rating() as $key => $value) {
+                        foreach (get_categories() as $key => $value) {
                             echo "<tr>";
                                 echo "<td>";
                                     echo $key+1;
-                                    switch ($key) {
-                                        case '0':
-                                            echo "<br><img src='https://vignette.wikia.nocookie.net/undertale/images/6/61/%D0%97%D0%BE%D0%BB%D0%BE%D1%82%D0%B0%D1%8F_%D0%BC%D0%B5%D0%B4%D0%B0%D0%BB%D1%8C.png/revision/latest?cb=20160704121116&path-prefix=ru' style='width: 20px; height: 20px;'' alt='gold'>";
-                                            break;
-                                        case '1':
-                                            echo "<br><img src='https://vignette.wikia.nocookie.net/undertale/images/5/5e/%D0%A1%D0%B5%D1%80%D0%B5%D0%B1%D1%80%D1%8F%D0%BD%D0%BD%D0%B0%D1%8F_%D0%BC%D0%B5%D0%B4%D0%B0%D0%BB%D1%8C.png/revision/latest?cb=20160704121052&path-prefix=ru' style='width: 20px; height: 20px;'' alt='sliver'>";
-                                            break;
-                                        case '2':
-                                            echo "<br><img src='https://vignette.wikia.nocookie.net/undertale/images/b/b6/%D0%91%D1%80%D0%BE%D0%BD%D0%B7%D0%BE%D0%B2%D0%B0%D1%8F_%D0%BC%D0%B5%D0%B4%D0%B0%D0%BB%D1%8C.png/revision/latest?cb=20160704121106&path-prefix=ru' style='width: 20px; height: 20px;'' alt='bronze'>";
-                                            break;
-                                    }
                                 echo "</td>";
                                 echo "<td>";
-                                    print_r($value[avatar]);
-                                    print_r($value[userName]);
+                                    print_r($value[name]);
                                 echo "</td>";
                                 echo "<td>";
-                                    print_r($value[userRating]);
+                                    print_r($value[description]);
                                 echo "</td>";
                                 echo "<td>";
-                                    print_r($value[country]);
+                                    echo "<form action='solutions.php' method='post'>
+                                            <input type='text' name='solutionID' hidden='true' value='$value[solutionID]'>
+                                            <button type='submit' class='btn btn-success'>Подробнее</button>
+                                          </form>";
                                 echo "</td>";
-                                // echo "<td>";
-                                //     echo "<form action='' method='get'>
-                                //             <input type='text' name='solutionID' hidden='true' value='$value[solutionID]'>
-                                //             <button type='submit' class='btn btn-success'>Подробнее</button>
-                                //             <!--<div onclick='get_solution($value[solutionID])' class='btn btn-success'>Подробнее</div>-->
-                                //           </form>";
-                                // echo "</td>";
                             echo "</tr>";
                         };
                         if (isset($_GET['solutionID'])) {

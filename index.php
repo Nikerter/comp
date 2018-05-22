@@ -16,7 +16,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <div class="row text-center">
         <div class="col-md-12">
-            <a href="solutions.php"><h1>Решения</h1></a>
+            <a href="category_solutions.php"><h1>Решения</h1></a>
             <a href="rating.php"><h1>Общий рейтинг</h1></a>
         </div>
     </div>

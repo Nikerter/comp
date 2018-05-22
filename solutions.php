@@ -25,13 +25,19 @@
                 <thead>
                     <tr>
                         <th>
-                            <h2>Задание</h2>
+                            <h2>#</h2>
+                        </th>
+                        <th>
+                            <h2>Упражнение</h2>
+                        </th>
+                        <th>
+                            <h2>Решение</h2>
                         </th>
                         <th>
                             <h2>Рейтинг</h2>
                         </th>
                         <th>
-                            <h2>Подробнее</h2>
+                            <h2>Подробности</h2>
                         </th>
                     </tr>
                 </thead>
@@ -39,6 +45,12 @@
                     <?php
                         foreach (get_user_solutions(USERID) as $key => $value) {
                             echo "<tr>";
+                                echo "<td>";
+                                    echo $key+1;
+                                echo "</td>";
+                                echo "<td>";
+                                  print_r($value[exerciseID]);
+                                echo "</td>";
                                 echo "<td>";
                                     print_r($value[text]);
                                 echo "</td>";
