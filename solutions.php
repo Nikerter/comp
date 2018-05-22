@@ -1,11 +1,8 @@
 <!doctype html>
 <html lang="ru">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <title>Старт</title>
@@ -26,6 +23,9 @@
                     <tr>
                         <th>
                             <h2>#</h2>
+                        </th>
+                        <th>
+                            <h2>Категория</h2>
                         </th>
                         <th>
                             <h2>Упражнение</h2>
@@ -49,7 +49,10 @@
                                     echo $key+1;
                                 echo "</td>";
                                 echo "<td>";
-                                  print_r($value[exerciseID]);
+                                  print_r(get_category($value[categoryID])[name]);
+                                echo "</td>";
+                                echo "<td>";
+                                  print_r(get_exercises($value[categoryID], $value[exerciseID])[text]);
                                 echo "</td>";
                                 echo "<td>";
                                     print_r($value[text]);
@@ -88,7 +91,7 @@
           <div class="modal-body">
              <h4>Имя пользователя:</h4>
              <p><?print_r(get_user_data(USERID)[userName]);?></p>
-             <h4>Задание:</h4> 
+             <h4>Решение:</h4> 
              <p><?print_r(get_solution($_GET['solutionID'])[text]);?></p> 
              <h4>Результат оценки:</h4> 
              <p><?print_r(get_solution($_GET['solutionID'])[solutionRating]);?></p> 
@@ -97,7 +100,6 @@
              <h4>Комментарии к решению:</h4>
              <ul class="list-group">             
                 <?php
-                    // print_r(get_solution_comment($_GET['solutionID']));
                         foreach (get_solution_comment($_GET['solutionID']) as $key => $value) {
                             echo "<li class='list-group-item'>";
                                 print_r($value[text]);
@@ -113,16 +115,6 @@
         </div>
       </div>
     </div>
-    <script>$('#exampleModal').on('hidden.bs.modal', function (event) {location.search = '';});</script>    
+    <script>$('#exampleModal').on('hidden.bs.modal', function (event) {location.search = '/';});</script>    
   </body>
 </html>
-<?php
-/*
-                            getsolution($userid);
-                            $name = "uber test";
-                            $des = "uber des";
-                            //postapi($name, $des);
-                            $delid = "2b36ab9e-2110-4e4b-95cb-175ad92add5f";
-                            //delapi($delid);
-*/
-?>
