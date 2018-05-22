@@ -46,6 +46,43 @@
     }
   };
 
+  function get_solution_comment($solutionID){
+
+      $curl = curl_init();
+
+      curl_setopt_array($curl, array(
+        CURLOPT_URL => "http://anmi.work/api/solutions/".$solutionID."/comments",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => array(
+          "Accept: application/json",
+          "Cache-Control: no-cache",
+          "Postman-Token: b1c75302-6b68-47d9-a100-a7eb24cda96c"
+        ),
+      ));
+
+      $response = curl_exec($curl);
+      $err = curl_error($curl);
+
+      curl_close($curl);
+
+      if ($err) {
+        echo "cURL Error #:" . $err;
+      } else {
+          $response = json_decode($response, true);
+          if (empty($response)) {
+            $response[][text] = "комментариев пока нету";
+            return $response;
+          } else {
+            return $response; 
+          }
+      }
+    };
+
   function get_solution($solutionID){
 
         $curl = curl_init();
@@ -110,43 +147,35 @@
     }
   };
 
+  function get_users_rating() {
 
-  function get_solution_comment($solutionID){
+    $curl = curl_init();
 
-      $curl = curl_init();
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => "http://anmi.work/api/users?orderBy=userRating+desc",
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => "",
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 30,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => "GET",
+      CURLOPT_HTTPHEADER => array(
+        "Cache-Control: no-cache",
+        "Postman-Token: f29f4cf0-6dc5-418c-bb97-f755eae05695"
+      ),
+    ));
 
-      curl_setopt_array($curl, array(
-        CURLOPT_URL => "http://anmi.work/api/solutions/".$solutionID."/comments",
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => "",
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 30,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => "GET",
-        CURLOPT_HTTPHEADER => array(
-          "Accept: application/json",
-          "Cache-Control: no-cache",
-          "Postman-Token: b1c75302-6b68-47d9-a100-a7eb24cda96c"
-        ),
-      ));
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
 
-      $response = curl_exec($curl);
-      $err = curl_error($curl);
+    curl_close($curl);
 
-      curl_close($curl);
-
-      if ($err) {
-        echo "cURL Error #:" . $err;
-      } else {
-          $response = json_decode($response, true);
-          if (empty($response)) {
-            $response[0][text] = "комментариев пока нету";
-            return $response;
-          } else {
-            return $response; 
-          }
-      }
-    };
-
+    if ($err) {
+      echo "cURL Error #:" . $err;
+    } else {
+      $response = json_decode($response, true);
+      return $response;
+    }
+  }
 
 ?>
