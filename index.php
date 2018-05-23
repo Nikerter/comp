@@ -18,6 +18,7 @@
         <div class="col-md-12">
             <a href="solutions.php"><h1>Решения</h1></a>
             <a href="rating.php"><h1>Общий рейтинг</h1></a>
+            <a href="category_rating.php"><h1>Рейтинг по категориям</h1></a>
         </div>
     </div>
   </body>
