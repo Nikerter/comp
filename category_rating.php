@@ -15,8 +15,12 @@
         include('libs/bibl.php');
         include('libs/const.php');
     ?>
+	<?php require($_SERVER[DOCUMENT_ROOT].'/comp/libs/menu.php');?>
+	<div class="container-fluid">
+		<div class="container">
     <div class="row">
-    	<div class="col-md-3 text-center">
+    	<div class="col-md-3 text-center" style="background-color: white; box-shadow: 7px 7px 5px rgba(0,0,0,0.1);">
+			
     		<h1>Категория</h1>
     		<div class="btn-group-vertical btn-group-lg">
 		    		<?php 
@@ -29,10 +33,11 @@
 
 		    		}
 		    		?>
-	    		
+	    		<br>
 	    	</div>
     	</div>
-    	<div class="col-md-9 text-center">
+		<div class="col-md-1"></div>
+    	<div class="col-md-8 text-center" style="background-color: white; box-shadow: 7px 7px 5px rgba(0,0,0,0.1);">
     		<h1>Списки лидеров по категориям</h1>
 			<table class="table table-hover">
                 <thead>
@@ -83,7 +88,8 @@
                             echo "</tr>";
                     		};
                     	} else {
-							echo "<h1>В этой категории пока нету записей</h1>";
+							echo "<hr>";
+							echo "<h2>В этой категории пока нету записей</h2>";
                     	};
                     };
                   
@@ -129,5 +135,8 @@
             </table>
     	</div>
     </div>
+		</div>
+	</div>
 </body>
+  <?php require($_SERVER[DOCUMENT_ROOT].'/comp/libs/footer.php');?>
 </html>

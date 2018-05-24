@@ -22,13 +22,13 @@
     <div class="container-fluid">
     <div class="row text-center">
         <div class="col-md-12">
-            <h1>Топ 100 пользователей</h1>
-            <div class="table-responsive">
+            <h1 style="font-family: 'Rubik', sans-serif;">Топ 100 пользователей</h1>
+            <div class="table-responsive" style="background-color: white; box-shadow: 7px 7px 5px rgba(0,0,0,0.1);">
             <table class="table  table-hover">
                 <thead>
                     <tr>
                         <th>
-                            <h2>№</h2>
+                            <h2>#</h2>
                         </th>
                         <th>
                             <h2>Пользователь</h2>

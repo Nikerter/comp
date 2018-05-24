@@ -9,6 +9,6 @@
         <li class="right-item"><a href="">Пункт</a></li>
         <li class="right-item"><a href="../comp/category_rating.php">Рейтинг по категориям</a></li>
     </ul>
-    <a class="navbar-logo" href=""><img src="https://html5book.ru/wp-content/uploads/2017/04/lily-logo.png"></a>
+    <a class="navbar-logo" href=""><img src="../comp/img/logo.png"></a>
 </nav>
 </html>

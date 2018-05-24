@@ -20,7 +20,7 @@
     <div class="container-fluid">
     <div class="row">
         <div class="col-md-12 text-center">
-            <div class="table-responsive">
+            <div class="table-responsive" style="background-color: white; box-shadow: 7px 7px 5px rgba(0,0,0,0.1);">
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -83,42 +83,81 @@
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel"><h3>Подробности решения</h3></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-             <h4>Имя пользователя:</h4>
-             <p><?print_r(get_user_data(USERID)[userName]);?></p>
-             <h4>Решение:</h4> 
-             <p><?print_r(get_solution($_GET['solutionID'])[text]);?></p> 
-             <h4>Результат оценки:</h4> 
-             <p><?print_r(get_solution($_GET['solutionID'])[solutionRating]);?></p> 
-             <h4>Статус:</h4> 
-             <p><?print_r(get_solution($_GET['solutionID'])[status]);?></p>
-             <h4>Комментарии к решению:</h4>
-             <ul class="list-group">             
-                <?php
-                        foreach (get_solution_comment($_GET['solutionID']) as $key => $value) {
-                            echo "<li class='list-group-item'>";
+        <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"><h3>Подробности о решении</h3></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Пользователь:</h4>
+                            </div>
+                            <div class="card-body">
+                                <blockquote class="blockquote mb-0">
+                                    <p><?print_r(get_user_data(USERID)[userName]);?></p>
+
+                                </blockquote>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Решение:</h4>
+                            </div>
+                            <div class="card-body">
+                                <blockquote class="blockquote mb-0">
+                                    <p><?print_r(get_solution($_GET['solutionID'])[text]);?></p>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Результат оценки:</h4>
+                            </div>
+                            <div class="card-body">
+                                <blockquote class="blockquote mb-0">
+                                    <p><?print_r(get_solution($_GET['solutionID'])[solutionRating]);?></p>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Рекомендации</h4>
+                            </div>
+                            <div class="card-body">
+                                <blockquote class="blockquote mb-0">
+                                    <li><a href="">Курсы по SQL</a></li>
+                                    <li><a href="">Обучение запросам к БД</a></li>
+                                    <footer class="blockquote-footer">geekbrains</footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <hr>
+                        <h4>Комментарии к решению:</h4>
+                        <ul class="list-group">
+                            <?php
+                            foreach (get_solution_comment($_GET['solutionID']) as $key => $value) {
+                                echo "<li class='list-group-item'>";
                                 print_r($value[text]);
-                            echo "</li>";
-                        }; 
-                ?>
-             </ul>
-             
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-          </div>
+                                echo "</li>";
+                            };
+                            ?>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
     </div>
     <script>$('#exampleModal').on('hidden.bs.modal', function (event) {location.search = '/';});</script>
   </body>

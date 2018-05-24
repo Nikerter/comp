@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:300');
 html {
     position: relative;
     min-height: 100%;
@@ -5,4 +6,9 @@ html {
 body {
     margin-bottom: 60px; /* Margin bottom by footer height */
     background-color: #ededed;
+    color: #50667b;
+    font-family: 'Rubik', sans-serif;
+}
+.btn-success{
+    background-color: #49f5a2;
 }
